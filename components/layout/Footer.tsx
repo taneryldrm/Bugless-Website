@@ -40,8 +40,9 @@ export function Footer() {
 
                     <div>
                         <h4 className="font-display font-bold text-white mb-4">İletişim</h4>
-                        <p className="text-gray-400 text-sm mb-2">info@buglessdigital.com</p>
-                        <p className="text-gray-400 text-sm">+90 555 555 55 55</p>
+                        <p className="text-gray-400 text-sm mb-2">info@buglessdigital.com.tr</p>
+                        <p className="text-gray-400 text-sm mb-2">0501 609 3535</p>
+                        <p className="text-gray-400 text-sm">Fatih Caddesi, Bornova/İzmir</p>
                         <div className="flex gap-4 mt-4">
                             {/* Social Icons could go here */}
                         </div>

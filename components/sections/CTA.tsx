@@ -9,8 +9,48 @@ export function CTA() {
         <section className="relative py-32 overflow-hidden">
             {/* Background Gradients */}
             <div className="absolute inset-0 bg-black">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-900/20 rounded-full blur-[120px]" />
-                <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-purple-900/10 rounded-full blur-[100px]" />
+                {/* Abstract Waves */}
+                <div className="absolute inset-0 opacity-30">
+                    <svg className="w-full h-full" viewBox="0 0 1440 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2" />
+                                <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.2" />
+                            </linearGradient>
+                            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stopColor="#a855f7" stopOpacity="0.15" />
+                                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.15" />
+                            </linearGradient>
+                        </defs>
+                        <motion.path
+                            fill="url(#grad1)"
+                            initial={{ d: "M0,400 C320,500 420,300 720,400 C1020,500 1120,300 1440,400 V800 H0 Z" }}
+                            animate={{
+                                d: [
+                                    "M0,400 C320,500 420,300 720,400 C1020,500 1120,300 1440,400 V800 H0 Z",
+                                    "M0,350 C320,450 420,250 720,350 C1020,450 1120,250 1440,350 V800 H0 Z",
+                                    "M0,400 C320,500 420,300 720,400 C1020,500 1120,300 1440,400 V800 H0 Z",
+                                ]
+                            }}
+                            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                        />
+                        <motion.path
+                            fill="url(#grad2)"
+                            initial={{ d: "M0,450 C240,350 540,550 720,450 C900,350 1200,550 1440,450 V800 H0 Z" }}
+                            animate={{
+                                d: [
+                                    "M0,450 C240,350 540,550 720,450 C900,350 1200,550 1440,450 V800 H0 Z",
+                                    "M0,480 C240,380 540,580 720,480 C900,380 1200,580 1440,480 V800 H0 Z",
+                                    "M0,450 C240,350 540,550 720,450 C900,350 1200,550 1440,450 V800 H0 Z",
+                                ]
+                            }}
+                            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                        />
+                    </svg>
+                </div>
+
+                {/* Soft ambient glow */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-900/10 rounded-full blur-[120px]" />
             </div>
 
             <div className="container mx-auto px-6 relative z-10 text-center">

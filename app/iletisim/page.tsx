@@ -27,8 +27,8 @@ export default function ContactPage() {
                                         <h3 className="font-bold text-lg mb-1">Ofisimiz</h3>
                                         <p className="text-gray-600">
                                             Bugless Digital Ofisi<br />
-                                            Maslak Mah. Büyükdere Cad.<br />
-                                            Sarıyer, İstanbul
+                                            Fatih Caddesi<br />
+                                            Bornova/İzmir
                                         </p>
                                     </div>
                                 </div>
@@ -39,8 +39,7 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-lg mb-1">E-Posta</h3>
-                                        <p className="text-gray-600">info@buglessdigital.com</p>
-                                        <p className="text-gray-600">hello@buglessdigital.com</p>
+                                        <p className="text-gray-600">info@buglessdigital.com.tr</p>
                                     </div>
                                 </div>
 
@@ -50,7 +49,7 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-lg mb-1">Telefon</h3>
-                                        <p className="text-gray-600">+90 212 555 55 55</p>
+                                        <p className="text-gray-600">0501 609 3535</p>
                                     </div>
                                 </div>
                             </div>

@@ -44,13 +44,20 @@ export function Header() {
     const [mobileExpandedIndex, setMobileExpandedIndex] = useState<number | null>(null);
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-md border-b border-white/10">
+        <header className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-xl border-b border-white/5 shadow-sm">
             <div className="container mx-auto px-6 h-24 flex items-center justify-between">
-                <Link href="/" className="z-50">
+                <Link href="/" className="z-50 relative group">
+                    {/* Ghost logo for spacing */}
                     <img
                         src="/logo.png"
                         alt="Bugless Digital Logo"
-                        className="h-[84px] w-auto object-contain"
+                        className="h-[84px] w-auto object-contain opacity-0"
+                    />
+                    {/* Actual enlarged logo */}
+                    <img
+                        src="/logo.png"
+                        alt="Bugless Digital Logo"
+                        className="h-[168px] w-auto object-contain absolute top-1/2 left-0 -translate-y-1/2 max-w-none transition-transform duration-300 group-hover:scale-105"
                     />
                 </Link>
 
@@ -65,12 +72,17 @@ export function Header() {
                             <Link
                                 href={item.href}
                                 className={cn(
-                                    "text-sm font-medium transition-colors flex items-center gap-1 py-4",
-                                    hoveredIndex === index ? "text-white" : "text-gray-300 hover:text-white"
+                                    "relative text-xs font-bold uppercase tracking-widest transition-colors flex items-center gap-1 py-4 overflow-hidden",
+                                    hoveredIndex === index ? "text-white" : "text-gray-400 hover:text-white"
                                 )}
                             >
-                                {item.name}
-                                {item.hasDropdown && <ChevronDown size={14} className={cn("transition-transform duration-200", hoveredIndex === index && "rotate-180")} />}
+                                <span className="relative z-10">{item.name}</span>
+                                {item.hasDropdown && <ChevronDown size={14} className={cn("transition-transform duration-200 relative z-10", hoveredIndex === index && "rotate-180")} />}
+
+                                <span className={cn(
+                                    "absolute bottom-2 left-0 w-full h-[1px] bg-white transform origin-left transition-transform duration-300 ease-out",
+                                    hoveredIndex === index ? "scale-x-100" : "scale-x-0"
+                                )} />
                             </Link>
 
                             {/* Desktop Dropdown */}

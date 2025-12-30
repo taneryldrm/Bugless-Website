@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Outfit, Space_Grotesk } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CTA } from "@/components/sections/CTA";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} antialiased bg-black text-white`}
+        className={`${outfit.variable} ${spaceGrotesk.variable} antialiased bg-black text-white`}
       >
         <Header />
         <main className="min-h-screen pt-20">
