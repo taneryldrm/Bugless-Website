@@ -47,32 +47,8 @@ export function ServicesOverview() {
     return (
         <section className="py-24 bg-black relative overflow-hidden">
             {/* Background Gradients */}
-            <motion.div
-                animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.2, 0.3, 0.2],
-                    rotate: [0, 90, 0]
-                }}
-                transition={{
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear"
-                }}
-                className="absolute top-0 left-1/4 w-96 h-96 bg-purple-900/20 rounded-full blur-[120px] pointer-events-none"
-            />
-            <motion.div
-                animate={{
-                    scale: [1, 1.1, 1],
-                    opacity: [0.2, 0.3, 0.2],
-                    x: [0, -50, 0]
-                }}
-                transition={{
-                    duration: 15,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                }}
-                className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-900/20 rounded-full blur-[120px] pointer-events-none"
-            />
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-900/20 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-900/20 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
@@ -86,22 +62,19 @@ export function ServicesOverview() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {services.map((service, index) => (
-                        <Link key={index} href={service.href} className="block group relative">
+                        <Link key={index} href={service.href} className="group relative">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="h-full p-8 rounded-2xl border border-white/5 hover:border-white/20 bg-neutral-900/40 backdrop-blur-md transition-all duration-300 group-hover:-translate-y-2 group-hover:bg-neutral-900/60 group-hover:shadow-[0_0_50px_-10px_rgba(255,255,255,0.1)] relative overflow-hidden"
+                                className="h-full p-8 rounded-2xl border border-white/5 hover:border-white/20 bg-neutral-900/40 backdrop-blur-md transition-all duration-300 group-hover:-translate-y-2 group-hover:bg-neutral-900/60 group-hover:shadow-[0_0_50px_-10px_rgba(255,255,255,0.1)]"
                             >
-                                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
-
-                                {/* Shine effect */}
-                                <div className="absolute -inset-full top-0 block h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine" />
+                                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
 
                                 <div className="relative z-10">
-                                    <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-300 shadow-inner shadow-white/5">
-                                        <service.icon className="text-white group-hover:text-blue-400 transition-colors" size={28} />
+                                    <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-300">
+                                        <service.icon className="text-white ring-0 group-hover:text-blue-400 transition-colors" size={28} />
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3 font-display">
                                         {service.title}
