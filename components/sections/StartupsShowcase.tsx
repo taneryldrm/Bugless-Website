@@ -24,7 +24,7 @@ const startups = [
 
 export function StartupsShowcase() {
     return (
-        <section className="py-24 bg-neutral-950 border-t border-white/10 text-white">
+        <section className="py-24 bg-neutral-950 border-t border-white/10 text-white overflow-hidden">
             <div className="container mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
                     <div>
@@ -32,7 +32,12 @@ export function StartupsShowcase() {
                         <p className="text-gray-400">Kendi bünyemizde geliştirdiğimiz ve büyüttüğümüz projeler.</p>
                     </div>
                     <div className="hidden md:block">
-                        <Rocket size={48} className="text-white/20" />
+                        <motion.div
+                            animate={{ y: [0, -10, 0] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                            <Rocket size={48} className="text-white/20" />
+                        </motion.div>
                     </div>
                 </div>
 
@@ -44,7 +49,12 @@ export function StartupsShowcase() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group p-8 bg-neutral-900 rounded-2xl border border-white/5 hover:border-white/20 transition-all hover:bg-neutral-800"
+                            whileHover={{
+                                y: -10,
+                                scale: 1.02,
+                                transition: { duration: 0.2 }
+                            }}
+                            className="group p-8 bg-neutral-900 rounded-2xl border border-white/5 hover:border-white/20 transition-all hover:bg-neutral-800 shadow-lg hover:shadow-2xl hover:shadow-purple-500/10"
                         >
                             <div className="text-xs font-bold tracking-wider text-gray-500 uppercase mb-4">{startup.category}</div>
                             <h3 className="text-2xl font-bold font-display mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
