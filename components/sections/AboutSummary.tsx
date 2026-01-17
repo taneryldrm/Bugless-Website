@@ -6,8 +6,16 @@ import { ArrowRight } from "lucide-react";
 
 export function AboutSummary() {
     return (
-        <section className="py-24 bg-white text-black">
-            <div className="container mx-auto px-6">
+        <section className="py-24 bg-white text-black relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-[0.4] pointer-events-none"
+                style={{
+                    backgroundImage: "radial-gradient(#e5e7eb 1px, transparent 1px)",
+                    backgroundSize: "24px 24px"
+                }}
+            />
+
+            <div className="container mx-auto px-6 relative z-10">
                 <div className="flex flex-col md:flex-row gap-16 items-center">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
@@ -42,20 +50,41 @@ export function AboutSummary() {
                             Hikayemizi Keşfet <ArrowRight size={20} />
                         </Link>
 
-                        <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
-                            <div>
-                                <h4 className="text-3xl font-bold font-display">50+</h4>
-                                <p className="text-sm text-gray-500 mt-1">Tamamlanan Proje</p>
-                            </div>
-                            <div>
-                                <h4 className="text-3xl font-bold font-display">%100</h4>
-                                <p className="text-sm text-gray-500 mt-1">Müşteri Memnuniyeti</p>
-                            </div>
-                            <div>
-                                <h4 className="text-3xl font-bold font-display">7/24</h4>
-                                <p className="text-sm text-gray-500 mt-1">Teknik Destek</p>
-                            </div>
-                        </div>
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={{
+                                hidden: { opacity: 0 },
+                                visible: {
+                                    opacity: 1,
+                                    transition: {
+                                        staggerChildren: 0.2
+                                    }
+                                }
+                            }}
+                            className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200"
+                        >
+                            {[
+                                { number: "50+", label: "Tamamlanan Proje" },
+                                { number: "%100", label: "Müşteri Memnuniyeti" },
+                                { number: "7/24", label: "Teknik Destek" }
+                            ].map((stat, index) => (
+                                <motion.div
+                                    key={index}
+                                    variants={{
+                                        hidden: { opacity: 0, y: 20 },
+                                        visible: { opacity: 1, y: 0 }
+                                    }}
+                                    whileHover={{ scale: 1.05, color: "#3b82f6" }}
+                                    transition={{ type: "spring", stiffness: 300 }}
+                                    className="cursor-default"
+                                >
+                                    <h4 className="text-3xl font-bold font-display transition-colors">{stat.number}</h4>
+                                    <p className="text-sm text-gray-500 mt-1">{stat.label}</p>
+                                </motion.div>
+                            ))}
+                        </motion.div>
                     </motion.div>
                 </div>
             </div>
