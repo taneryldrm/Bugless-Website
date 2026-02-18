@@ -68,13 +68,13 @@ export function ServicesOverview() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="h-full p-8 rounded-2xl border border-white/5 hover:border-white/20 bg-neutral-900/40 backdrop-blur-md transition-all duration-300 group-hover:-translate-y-2 group-hover:bg-neutral-900/60 group-hover:shadow-[0_0_50px_-10px_rgba(255,255,255,0.1)]"
+                                className="h-full p-8 rounded-2xl border border-white/5 hover:border-blue-500/50 bg-neutral-900/40 backdrop-blur-md transition-all duration-300 group-hover:-translate-y-2 group-hover:bg-neutral-900/80 group-hover:shadow-[0_0_50px_-10px_rgba(59,130,246,0.2)]"
                             >
-                                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
 
                                 <div className="relative z-10">
-                                    <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-300">
-                                        <service.icon className="text-white ring-0 group-hover:text-blue-400 transition-colors" size={28} />
+                                    <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-600 transition-all duration-300 shadow-[0_0_20px_rgba(59,130,246,0)] group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+                                        <service.icon className="text-white ring-0 transition-colors" size={28} />
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3 font-display">
                                         {service.title}

@@ -45,7 +45,7 @@ export function Hero() {
                     className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-tight tracking-tighter mb-8"
                 >
                     Markanız İçin <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-500">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 animate-gradient-x">
                         Kusursuz Dijital Çözümler
                     </span>
                 </motion.h1>
@@ -67,7 +67,7 @@ export function Hero() {
                 >
                     <Link
                         href="/iletisim"
-                        className="group relative px-8 py-4 bg-white text-black font-semibold rounded-full overflow-hidden transition-all hover:pr-12"
+                        className="group relative px-8 py-4 bg-white text-black font-semibold rounded-full overflow-hidden transition-all hover:pr-12 hover:shadow-[0_0_40px_rgba(59,130,246,0.6)]"
                     >
                         <span className="relative z-10">Projeye Başla</span>
                         <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-0 translate-x-4">

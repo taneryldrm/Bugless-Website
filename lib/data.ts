@@ -49,7 +49,47 @@ export const servicesData = [
         description: "Markanızın sosyal medyadaki sesini profesyonelce yönetin, takipçilerinizle etkileşimi artırın.",
         fullDescription: "Sosyal medya sadece paylaşım yapmak değil, bir topluluk oluşturmaktır. Markanızın diline uygun içerik stratejileri geliştiriyor, görsel tasarımlar hazırlıyor ve topluluğunuzu yönetiyoruz.",
         features: ["İçerik Stratejisi ve Planlama", "Profesyonel Tasarım & Video", "Topluluk Yönetimi & Moderasyon", "Rakip ve Sektör Analizi", "Etkileşim Artırma Çalışmaları", "Influencer Pazarlama"],
-        href: "/hizmetlerimiz/sosyal-medya"
+        href: "/hizmetlerimiz/sosyal-medya",
+        heroTitle: "Sosyal Medya Stratejilerimizle Markanızın Gücünü Bizimle Artırın.",
+        heroSubtitle: "Sadece görünürlüğünüzü artırmakla kalmıyoruz; müşterilerinizle sarsılmaz ve güçlü bağlar kurmanızı sağlıyoruz. Bugless Digital olarak, markanızı sosyal medyanın zirvesine taşıyacak tüm profesyonel süreçleri biz yönetiyoruz.",
+        cta: {
+            text: "ÜCRETSİZ ANALİZ TALEP ET & RANDEVU PLANLA",
+            subtext: "Sektörünüzü ve rakiplerinizi inceliyoruz, size özel büyüme haritasını 24 saat içinde sunuyoruz."
+        },
+        detailedFeatures: [
+            { title: "Sosyal Medya Stratejisi Geliştirme", description: "Markanızın hedeflerini analiz ediyor; Instagram, LinkedIn ve TikTok gibi platformlarda etkileşimi artıracak size özel stratejik yol haritalarını biz kurguluyoruz." },
+            { title: "İçerik Yönetimi & Üretimi", description: "Görsel, video ve metin içeriklerini bir bütün olarak ele alıyor; markanızın sesini en etkili kreatif tasarımlarla sosyal medyada biz duyuruyoruz." },
+            { title: "Etkileşim & Topluluk Yönetimi", description: "Takipçilerinizle canlı bir bağ kuruyor, tüm mesaj ve yorumları markanızın kimliğine uygun şekilde profesyonellikle biz yanıtlıyoruz." },
+            { title: "Sosyal Medya Reklam Yönetimi", description: "Hedef kitlenize ulaşmanız için reklam kampanyalarınızı veri odaklı kurguluyor, bütçenizi en yüksek dönüşümü alacak şekilde biz optimize ediyoruz." },
+            { title: "Analiz & Raporlama", description: "Sosyal medya performansınızı anlık olarak takip ediyor; stratejinizi geliştirecek şeffaf ve detaylı raporları biz sunuyoruz." }
+        ],
+        tools: {
+            title: "HİZMETİMİZDE KULLANDIĞIMIZ ARAÇLAR",
+            description: "Sosyal medya stratejinizi güçlendirmek için en son teknolojilere sahip araçları kullanıyor, dijital görünürlüğünüzü biz artırıyoruz.",
+            items: [
+                { label: "Platformlar", value: "Instagram, Facebook, LinkedIn, TikTok, X (Twitter), YouTube." },
+                { label: "Analiz & Veri", value: "Meta Business Suite, Google Analytics, Hootsuite, Brandwatch." }
+            ]
+        },
+        approaches: {
+            title: "SOSYAL MEDYA YÖNETİMİNDE TEMEL YAKLAŞIMLARIMIZ",
+            description: "Görseldeki titizliği markamızın disipliniyle birleştiriyoruz.",
+            items: [
+                { title: "İtibar Yönetimi", description: "Sosyal medya hesaplarınızı uzmanlarımızla sürekli izliyoruz. Gelen etkileşimlere hızla cevap vererek markanızın kurumsal itibarını biz güçlendiriyoruz." },
+                { title: "Planlı & Programlı Çalışma", description: "Etkin bir sosyal medya varlığı için planlı ve programlı çalışmanın önemine inanıyoruz. Görsel ve içerik paylaşımlarınızı zamanlı ve stratejik bir şekilde biz organize ediyoruz." }
+            ]
+        },
+        process: {
+            title: "\"SÜREÇ HER ŞEYDİR\": HEDEFLERİNİZE NASIL ULAŞIYORUZ?",
+            description: "Başarı bir tesadüf değildir; titizlikle uyguladığımız süreçlerimizin bir sonucudur.",
+            steps: [
+                { title: "1. Keşif & Analiz", description: "Markanızı ve rakiplerinizi tanıyarak işe başlıyoruz." },
+                { title: "2. Strateji Geliştirme", description: "Hedeflerinize en hızlı ulaştıracak içerik ve reklam planını biz çiziyoruz." },
+                { title: "3. Kreatif Uygulama", description: "Tasarım ve video prodüksiyon süreçlerini profesyonelce hayata geçiriyoruz." },
+                { title: "4. Yayın & Optimizasyon", description: "En doğru zamanda yayına giriyor, performans verilerine göre anlık iyileştirmeler yapıyoruz." },
+                { title: "5. Raporlama & Gelişim", description: "Her ay şeffaf verilerle gelişimi analiz ediyor, bir sonraki ayın stratejisini birlikte güncelliyoruz." }
+            ]
+        },
     },
     {
         id: "portfolyo-blog",

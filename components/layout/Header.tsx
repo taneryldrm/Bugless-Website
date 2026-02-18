@@ -44,45 +44,43 @@ export function Header() {
     const [mobileExpandedIndex, setMobileExpandedIndex] = useState<number | null>(null);
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-xl border-b border-white/5 shadow-sm">
-            <div className="container mx-auto px-6 h-24 flex items-center justify-between">
-                <Link href="/" className="z-50 relative group">
-                    {/* Ghost logo for spacing */}
+        <header className="fixed top-0 left-0 right-0 z-[9999] bg-black/50 backdrop-blur-xl border-b border-white/5 shadow-sm">
+            <div className="container mx-auto px-6 h-24 flex items-center justify-between relative">
+                {/* Decorative Enlarged Logo - Separate from Link to prevent click blocking */}
+                <div className="absolute left-6 top-1/2 -translate-y-1/2 z-40 pointer-events-none select-none">
+                    <img
+                        src="/logo.png"
+                        alt=""
+                        className="h-[168px] w-auto max-w-[500px] object-contain"
+                    />
+                </div>
+
+                <Link href="/" className="relative z-[9999] group w-[180px] h-full flex items-center pointer-events-auto">
+                    {/* Ghost logo for spacing and hit area */}
                     <img
                         src="/logo.png"
                         alt="Bugless Digital Logo"
                         className="h-[84px] w-auto object-contain opacity-0"
                     />
-                    {/* Actual enlarged logo */}
-                    <img
-                        src="/logo.png"
-                        alt="Bugless Digital Logo"
-                        className="h-[168px] w-auto object-contain absolute top-1/2 left-0 -translate-y-1/2 max-w-none transition-transform duration-300 group-hover:scale-105"
-                    />
                 </Link>
 
-                {/* Desktop Nav */}
-                <nav className="hidden lg:flex gap-8 items-center" onMouseLeave={() => setHoveredIndex(null)}>
+                {/* Desktop Nav - z-[9999] to ensure it's ALWAYS on top */}
+                <nav className="hidden lg:flex gap-8 items-center relative z-[9999] pointer-events-auto">
                     {navItems.map((item, index) => (
                         <div
                             key={item.name}
-                            className="relative group"
+                            className="relative group/menu"
                             onMouseEnter={() => setHoveredIndex(index)}
+                            onMouseLeave={() => setHoveredIndex(null)}
                         >
                             <Link
                                 href={item.href}
-                                className={cn(
-                                    "relative text-xs font-bold uppercase tracking-widest transition-colors flex items-center gap-1 py-4 overflow-hidden",
-                                    hoveredIndex === index ? "text-white" : "text-gray-400 hover:text-white"
-                                )}
+                                className="relative text-xs font-bold uppercase tracking-widest transition-colors flex items-center gap-1 py-4 text-gray-400 hover:text-white"
                             >
                                 <span className="relative z-10">{item.name}</span>
-                                {item.hasDropdown && <ChevronDown size={14} className={cn("transition-transform duration-200 relative z-10", hoveredIndex === index && "rotate-180")} />}
+                                {item.hasDropdown && <ChevronDown size={14} className="transition-transform duration-200 relative z-10 group-hover/menu:rotate-180" />}
 
-                                <span className={cn(
-                                    "absolute bottom-2 left-0 w-full h-[1px] bg-white transform origin-left transition-transform duration-300 ease-out",
-                                    hoveredIndex === index ? "scale-x-100" : "scale-x-0"
-                                )} />
+                                <span className="absolute bottom-2 left-0 w-full h-[1px] bg-white transform origin-left transition-transform duration-300 ease-out scale-x-0 group-hover/menu:scale-x-100" />
                             </Link>
 
                             {/* Desktop Dropdown */}
