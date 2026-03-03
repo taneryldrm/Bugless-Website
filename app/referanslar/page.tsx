@@ -16,8 +16,6 @@ export default function ReferencesPage() {
     }, []);
 
     const websiteRefs = references.filter(r => r.category === "website");
-    const socialRefs = references.filter(r => r.category === "social");
-    const adsRefs = references.filter(r => r.category === "ads");
     const crmRefs = references.filter(r => r.category === "crm");
 
     const EmptyState = ({ text }: { text: string }) => (
@@ -112,18 +110,80 @@ export default function ReferencesPage() {
     };
 
     /* ── Static image map for website references ── */
-    const refImageMap: Record<string, string> = {
-        "WRO48": "/images/ref-wro48.png",
-        "İçel Solar Market": "/images/ref-icel-solar.png",
-        "Serene": "/images/ref-serene.png",
-        "Vera Temizlik": "/images/ref-vera-temizlik.png",
-        "Uçanlar": "/images/ref-ucanlar.png",
+    const refImageMap: Record<string, string> = {};
+
+    /* ── Custom data map for specific references ── */
+    const customDataMap: Record<string, { mobileImage?: string, desktopImage?: string, link?: string, content: React.ReactNode }> = {
+        "WRO48": {
+            desktopImage: "/images/wro48-desktop.png",
+            link: "https://wro48.com",
+            content: (
+                <div className="space-y-4 text-gray-600 text-base leading-relaxed mb-8">
+                    <p className="font-bold text-lg text-black">Geleceğin Tasarım Ekosistemi</p>
+                    <p>Wro48, Polonya merkezli bir tasarım ofisi olarak markalar ve inovatif çözümler arasında köprü kuran hibrit bir platformdur. Kurumsal kimlik süreçlerini dijital estetikle birleştirerek Maxitech ekibi için özel olarak geliştirilmiştir.</p>
+                    <p>Tüm görsel süreçler ve tasarım kurguları ileri düzey yapay zeka entegrasyonu ile optimize edilir. Bu sayede ekibimiz, operasyonel süreçlerde 3 kat daha verimli çalışarak yaratıcı stratejilere daha fazla vakit ayırır.</p>
+                    <p>Kuruluşumuzdan bu yana en güncel teknolojileri iş akışımıza dahil ediyoruz. GPT-4 ve yeni nesil tasarım araçlarıyla içerik üretim hızımızı 5 kat artırarak iş ortaklarımıza zamansız çözümler sunuyoruz.</p>
+                </div>
+            )
+        },
+        "İçel Solar Market": {
+            desktopImage: "/images/ref-icel-solar.png",
+            link: "https://icelsolarmarket.com",
+            content: (
+                <div className="space-y-4 text-gray-600 text-base leading-relaxed mb-8">
+                    <p className="font-bold text-lg text-black">Kesintisiz Güneş Enerjisi Çözümleri</p>
+                    <p>İçel Solar Market, enerji sektöründeki deneyimini dijital dünyaya taşıyarak icelsolarmarket.com çatısı altında güvenilir alışverişin adresi olmuştur.</p>
+                    <p><strong>Geniş Ürün Gamı:</strong> Güneş panellerinden inverterlere, jel akülerden montaj ekipmanlarına kadar her şey tek adreste.</p>
+                    <p><strong>Hızlı Tedarik:</strong> Stok yönetimi ve lojistik ağımızdaki otomasyon sayesinde taleplerinizi %50 daha hızlı karşılıyoruz.</p>
+                    <p><strong>Sürdürülebilir Gelecek:</strong> Temiz enerjiye geçiş sürecinizi teknik destek ve kaliteli donanımla kolaylaştırıyoruz.</p>
+                </div>
+            )
+        },
+        "Serene": {
+            desktopImage: "/images/ref-serene.png",
+            link: "https://serenebutik.com",
+            content: (
+                <div className="space-y-4 text-gray-600 text-base leading-relaxed mb-8">
+                    <p className="font-bold text-lg text-black">Günün Her Anında Şık, Her Anında Serene</p>
+                    <p>Serene Butik, stil sahibi kadınlar için kürate edilmiş bir moda destinasyonudur. Gardırobunuzun temel taşlarını ve sezonun en iddialı görünümlerini bir araya getiriyoruz.</p>
+                    <p><strong>Kürate Edilmiş Seçkiler:</strong> Modanın kalbinden özenle seçilen, zamansız ve trend parçalar.</p>
+                    <p><strong>Hızlı ve Güvenli Alışveriş:</strong> Sipariş süreçlerindeki dijital otomasyon ile paketlerinizi ışık hızında hazırlıyoruz.</p>
+                    <p><strong>Müşteri Memnuniyeti:</strong> Satış öncesi ve sonrası destek ekibimizle alışveriş deneyiminizi kusursuz kılıyoruz.</p>
+                </div>
+            )
+        },
+        "Vera Temizlik": {
+            desktopImage: "/images/ref-vera-temizlik.png",
+            link: "https://www.antalyaveratemizlik.com",
+            content: (
+                <div className="space-y-4 text-gray-600 text-base leading-relaxed mb-8">
+                    <p className="font-bold text-lg text-black">Antalya'da Hijyenin Profesyonel Adresi</p>
+                    <p>Antalya merkezli Vera Temizlik, ev ve ofis hijyenini dijital dünyanın konforuyla buluşturuyor. icelsolarmarket.com gibi projelerdeki dijital standartlarımızı, temizlik sektörünün dinamikleriyle harmanladık.</p>
+                    <p><strong>Antalya Geneli Hizmet:</strong> Şehrin her ilçesine uzman kadromuzla tam zamanlı destek.</p>
+                    <p><strong>Dijital Randevu Sistemi:</strong> Bugless Digital güvencesiyle tasarlanan kullanıcı dostu arayüz üzerinden saniyeler içinde hizmet planlama.</p>
+                    <p><strong>Güvenilir Kadro:</strong> Titizlikle seçilmiş, profesyonel eğitimlerden geçmiş deneyimli ekipler.</p>
+                </div>
+            )
+        },
+        "Uçanlar": {
+            desktopImage: "/images/ref-ucanlar.png",
+            content: (
+                <div className="space-y-4 text-gray-600 text-base leading-relaxed mb-8">
+                    <p className="font-bold text-lg text-black">Saha ve Ofis Arasındaki Kusursuz Köprü</p>
+                    <p>İzmir'de faaliyet gösteren Uçanlar Temizlik'in ihtiyaçlarına göre özelleştirilen CRM paneli, Bugless Digital tarafından uçtan uca kodlanmıştır.</p>
+                    <p><strong>Akıllı Dashboard:</strong> Günlük iş yükünü, personel durumunu ve gelir-gider dengesini anlık olarak izleme imkanı.</p>
+                    <p><strong>Personel Yönetimi:</strong> Saha ekiplerinin görev dağılımını ve performansını dijital ortamda takip etme kolaylığı.</p>
+                    <p><strong>Müşteri Hafızası:</strong> Geçmiş randevuların ve özel müşteri taleplerinin kayıt altında tutulduğu güvenli veri tabanı.</p>
+                </div>
+            )
+        }
     };
 
     /* ── Static Website Reference Card ── */
     const StaticWebsiteCard = ({ name, index }: { name: string; index: number }) => {
         const isReversed = index % 2 !== 0;
         const staticImage = refImageMap[name];
+        const customData = customDataMap[name];
 
         return (
             <motion.div
@@ -135,13 +195,23 @@ export default function ReferencesPage() {
             >
                 <div className={`flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-8 md:gap-12 p-8 md:p-12`}>
                     {/* Mockup Image */}
-                    <div className="w-full md:w-[55%] flex-shrink-0">
-                        {staticImage ? (
+                    <div className="w-full md:w-[60%] flex-shrink-0 relative">
+                        {customData ? (
+                            <div className="relative flex items-center justify-center">
+                                {customData.desktopImage && (
+                                    <img
+                                        src={customData.desktopImage}
+                                        alt={`${name} Desktop`}
+                                        className="w-full max-w-[840px] h-auto object-contain scale-110 md:scale-125"
+                                    />
+                                )}
+                            </div>
+                        ) : staticImage ? (
                             <div className="flex items-center justify-center">
                                 <img
                                     src={staticImage}
                                     alt={name}
-                                    className="w-full max-w-[560px] h-auto object-contain"
+                                    className="w-full max-w-[840px] h-auto object-contain scale-110 md:scale-125"
                                 />
                             </div>
                         ) : (
@@ -150,17 +220,32 @@ export default function ReferencesPage() {
                     </div>
 
                     {/* Content */}
-                    <div className="w-full md:w-[55%] flex flex-col justify-center">
+                    <div className="w-full md:w-[40%] flex flex-col justify-center">
                         <h3 className="text-3xl md:text-4xl font-display font-bold text-neutral-900 mb-3 tracking-tight">
                             {name}
                         </h3>
-                        <p className="text-gray-600 text-base leading-relaxed mb-8">
-                            Bugless Digital tarafından tasarlanmış ve geliştirilmiş profesyonel dijital çözüm.
-                        </p>
+                        {customData ? (
+                            customData.content
+                        ) : (
+                            <p className="text-gray-600 text-base leading-relaxed mb-8">
+                                Bugless Digital tarafından tasarlanmış ve geliştirilmiş profesyonel dijital çözüm.
+                            </p>
+                        )}
                         <div>
-                            <span className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-black text-white text-sm font-bold rounded-full uppercase tracking-widest">
-                                İncele
-                            </span>
+                            {customData?.link ? (
+                                <a
+                                    href={customData.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-black text-white text-sm font-bold rounded-full uppercase tracking-widest transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,0,0,0.3)]"
+                                >
+                                    İncele
+                                </a>
+                            ) : name !== "Uçanlar" ? (
+                                <span className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-black text-white text-sm font-bold rounded-full uppercase tracking-widest cursor-default">
+                                    İncele
+                                </span>
+                            ) : null}
                         </div>
                     </div>
                 </div>
@@ -197,14 +282,12 @@ export default function ReferencesPage() {
         <main className="bg-white">
             <PageHeader
                 title="Referanslarımız"
-                description="Bizimle çalışmayı tercih eden ve birlikte büyüdüğümüz değerli iş ortaklarımız."
+                description="Dijital mükemmellik vizyonumuzu paylaşan değerli iş ortaklarımızla birlikte hayata geçirdiğimiz yenilikçi ve ses getiren projeler."
             />
 
             <section className="py-24 bg-white text-black">
                 <div className="container mx-auto px-6 max-w-6xl">
                     {renderSection("website", "Website Referansları", websiteRefs, "Henüz web sitesi referansı eklenmemiş.", staticWebsiteNames)}
-                    {renderSection("sosyal-medya", "Sosyal Medya Referansları", socialRefs, "Henüz sosyal medya referansı eklenmemiş.")}
-                    {renderSection("reklam-yonetimi", "Reklam Yönetimi Referansları", adsRefs, "Henüz reklam yönetimi referansı eklenmemiş.")}
                     {renderSection("crm", "CRM Referansları", crmRefs, "Henüz CRM referansı eklenmemiş.", staticCrmNames, true)}
                 </div>
             </section>

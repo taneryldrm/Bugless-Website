@@ -4,6 +4,7 @@ import { serviceCategories } from "@/lib/data";
 import { Laptop, ShoppingCart, Megaphone, BarChart, CheckCircle, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { PageHeader } from "@/components/ui/PageHeader";
 
 // Helper to map icons to categories for visual consistency
@@ -14,12 +15,19 @@ const categoryIcons: Record<string, any> = {
     "buyume-seo": ShoppingCart
 };
 
+const categoryImages: Record<string, string> = {
+    "yazilim-teknoloji": "/images/hizmetler/yazilim-teknoloji.png",
+    "reklam-yonetimi": "/images/hizmetler/reklam-yonetimi.png",
+    "marka-icerik": "/images/hizmetler/marka-icerik.png",
+    "buyume-seo": "/images/hizmetler/buyume-seo.png"
+};
+
 export default function ServicesPage() {
     return (
         <>
             <PageHeader
                 title="Hizmetlerimiz"
-                description="Markanızın dijital dönüşümü için uçtan uca, profesyonel çözümler."
+                description="İhtiyaçlarınıza özel stratejiler, yenilikçi yazılımlar ve veri odaklı kampanyalarla markanızın dijitaldeki gücünü maksimize ediyoruz."
             />
 
             <section className="bg-white text-black py-12">
@@ -34,11 +42,20 @@ export default function ServicesPage() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-100px" }}
                                     transition={{ duration: 0.6 }}
-                                    className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-16 items-center py-12 border-b border-gray-100 last:border-0`}
+                                    className={`flex flex-col lg:flex-row ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''} gap-12 lg:gap-16 items-center py-12 border-b border-gray-100 last:border-0`}
                                 >
-                                    <div className="lg:w-1/2 flex justify-center">
-                                        <div className="w-full max-w-md aspect-square bg-gray-50 rounded-3xl flex items-center justify-center p-12">
-                                            <Icon size={120} className="text-gray-200 stroke-1" />
+                                    <div className="w-full lg:w-1/2 flex justify-center">
+                                        <div className="w-full max-w-[320px] md:max-w-md aspect-square bg-gray-50 rounded-3xl flex items-center justify-center relative overflow-hidden">
+                                            {categoryImages[category.id] ? (
+                                                <Image
+                                                    src={categoryImages[category.id]}
+                                                    alt={category.title}
+                                                    fill
+                                                    className="object-cover"
+                                                />
+                                            ) : (
+                                                <Icon size={120} className="text-gray-200 stroke-1" />
+                                            )}
                                         </div>
                                     </div>
 

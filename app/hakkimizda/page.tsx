@@ -62,7 +62,7 @@ export default function AboutPage() {
         <>
             <PageHeader
                 title="Hakkımızda"
-                description="Teknoloji ve yaratıcılığın kesişim noktasında, markanız için değer üretiyoruz."
+                description="Teknoloji, estetik tasarım ve stratejik yaratıcılığı kusursuzca harmanlayarak, markanızın dijital vizyonunu ve geleceğini bugünden inşa ediyoruz."
             />
 
             {/* Intro Section */}

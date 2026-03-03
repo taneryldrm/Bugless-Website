@@ -7,6 +7,8 @@ export type BlogItem = {
     content: string;
     slug: string;
     category: string;
+    readTime?: string;
+    metaDescription?: string;
     publishedAt: string;
     image?: string;
 };

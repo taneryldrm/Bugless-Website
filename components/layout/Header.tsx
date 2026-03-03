@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { serviceCategories, startupsData } from "@/lib/data";
+import { serviceCategories } from "@/lib/data";
 
 const navItems = [
     { name: "Ana Sayfa", href: "/" },
@@ -21,23 +21,8 @@ const navItems = [
             subItems: cat.subServices.map(sub => ({ name: sub.title, href: sub.href }))
         }))
     },
-    {
-        name: "Referanslar",
-        href: "/referanslar",
-        hasDropdown: true,
-        dropdownItems: [
-            { name: "Website Referansları", href: "/referanslar/website-referanslari" },
-            { name: "Sosyal Medya Referansları", href: "/referanslar/sosyal-medya-referanslari" },
-            { name: "Reklam Yönetimi Referansları", href: "/referanslar/reklam-yonetimi-referanslari" },
-            { name: "CRM Referansları", href: "/referanslar/crm-referanslari" },
-        ]
-    },
-    {
-        name: "Startuplar",
-        href: "/startuplar",
-        hasDropdown: true,
-        dropdownItems: startupsData.map(s => ({ name: s.name, href: s.href }))
-    },
+    { name: "Referanslar", href: "/referanslar" },
+
     { name: "Blog", href: "/blog" },
     { name: "İletişim", href: "/iletisim" },
 ];

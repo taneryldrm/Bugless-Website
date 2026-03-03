@@ -97,6 +97,8 @@ export default function AdminPage() {
                 content: blogForm.content || "",
                 slug: blogForm.slug!,
                 category: blogForm.category || "Genel",
+                readTime: blogForm.readTime || "5 dk",
+                metaDescription: blogForm.metaDescription || "",
                 publishedAt: new Date().toISOString(),
                 image: blogForm.image || ""
             };
@@ -346,14 +348,27 @@ export default function AdminPage() {
                                             />
                                         </div>
                                     </div>
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-medium text-neutral-400">Kategori</label>
-                                        <input
-                                            type="text"
-                                            value={blogForm.category || ""}
-                                            onChange={(e) => setBlogForm({ ...blogForm, category: e.target.value })}
-                                            className="w-full bg-neutral-800 border border-neutral-700 rounded-xl px-4 py-3 focus:outline-none"
-                                        />
+                                    <div className="grid grid-cols-2 gap-6">
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-medium text-neutral-400">Kategori</label>
+                                            <input
+                                                type="text"
+                                                value={blogForm.category || ""}
+                                                onChange={(e) => setBlogForm({ ...blogForm, category: e.target.value })}
+                                                className="w-full bg-neutral-800 border border-neutral-700 rounded-xl px-4 py-3 focus:outline-none"
+                                                placeholder="Örn: Tasarım, Yazılım"
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-medium text-neutral-400">Okuma Süresi</label>
+                                            <input
+                                                type="text"
+                                                value={blogForm.readTime || ""}
+                                                onChange={(e) => setBlogForm({ ...blogForm, readTime: e.target.value })}
+                                                className="w-full bg-neutral-800 border border-neutral-700 rounded-xl px-4 py-3 focus:outline-none"
+                                                placeholder="Örn: 5 dk"
+                                            />
+                                        </div>
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-neutral-400">Kısa Özet</label>
@@ -362,6 +377,17 @@ export default function AdminPage() {
                                             value={blogForm.excerpt || ""}
                                             onChange={(e) => setBlogForm({ ...blogForm, excerpt: e.target.value })}
                                             className="w-full bg-neutral-800 border border-neutral-700 rounded-xl px-4 py-3 focus:outline-none"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-medium text-neutral-400">SEO Meta Açıklaması (Maks. 160 Karakter)</label>
+                                        <textarea
+                                            rows={2}
+                                            maxLength={160}
+                                            value={blogForm.metaDescription || ""}
+                                            onChange={(e) => setBlogForm({ ...blogForm, metaDescription: e.target.value })}
+                                            className="w-full bg-neutral-800 border border-neutral-700 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500"
+                                            placeholder="Google aramalarında görünecek kısa açıklama..."
                                         />
                                     </div>
                                     <div className="space-y-2">
@@ -830,6 +856,6 @@ export default function AdminPage() {
                     </AnimatePresence>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }

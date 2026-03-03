@@ -113,69 +113,10 @@ export const referencesData = [
         items: ["WRO48", "İçel Solar Market", "Serene", "Vera Temizlik"]
     },
     {
-        id: "sosyal-medya-referanslari",
-        title: "Sosyal Medya Referansları",
-        description: "Yönettiğimiz sosyal medya hesapları ve başarı hikayeleri.",
-        items: [] as string[]
-    },
-    {
-        id: "reklam-yonetimi-referanslari",
-        title: "Reklam Yönetimi Referansları",
-        description: "Yüksek dönüşüm sağlayan dijital reklam kampanyalarımız.",
-        items: [] as string[]
-    },
-    {
         id: "crm-referanslari",
         title: "CRM Referansları",
         description: "İş süreçlerini dijitalleştirdiğimiz firmalar.",
         items: ["Uçanlar"]
     }
 ];
-
-export const startupsData: {
-    id: string;
-    name: string;
-    category: string;
-    description: string;
-    fullDescription: string;
-    features: string[];
-    status: string;
-    techStack: string[];
-    href: string;
-}[] = [
-        {
-            id: "play-my-jam",
-            name: "Play My Jam",
-            category: "Mobil Uygulama",
-            description: "Müzik zevkini sosyalleştiren, mekanlarda çalacak şarkıları oylama ile belirleyen yenilikçi mobil uygulama.",
-            fullDescription: "Play My Jam, müzik deneyimini tamamen yeniden tanımlayan bir mobil uygulamadır. Kullanıcılar mekanlarındaki müzik çalma listesine katkıda bulunabilir, favori şarkılarını önerebilir ve diğer kullanıcıların önerilerini oylayabilir. Mekan sahipleri için de güçlü bir yönetim paneli sunarak, müşteri memnuniyetini artırmayı hedefler.",
-            features: [
-                "Şarkı oylama sistemi",
-                "Mekan bazlı müzik listeleri",
-                "Gerçek zamanlı sıralama",
-                "Kullanıcı profilleri",
-                "Mekan yönetim paneli"
-            ],
-            status: "Yayında",
-            techStack: ["React Native", "Node.js", "MongoDB", "Socket.io"],
-            href: ""
-        },
-        {
-            id: "santiye-cepte",
-            name: "Şantiye Cepte",
-            category: "Web Uygulama",
-            description: "İnşaat sektörüne özel geliştirilen, şantiye yönetimini dijitalleştiren kapsamlı proje yönetim platformu.",
-            fullDescription: "Şantiye Cepte, inşaat sektöründeki proje yönetimi süreçlerini kolaylaştırmak için tasarlanmış kapsamlı bir dijital platformdur. Şantiye takibi, malzeme yönetimi, iş gücü planlaması ve raporlama gibi kritik süreçleri tek bir çatı altında toplar.",
-            features: [
-                "Proje takip sistemi",
-                "Malzeme yönetimi",
-                "İş gücü planlaması",
-                "Anlık raporlama",
-                "Mobil uyumlu arayüz"
-            ],
-            status: "Geliştirme Aşamasında",
-            techStack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"],
-            href: ""
-        }
-    ];
 

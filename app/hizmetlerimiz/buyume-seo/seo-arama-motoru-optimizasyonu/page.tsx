@@ -19,6 +19,7 @@ import {
     ArrowRight
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const values = [
     {
@@ -210,14 +211,21 @@ export default function SEOPage() {
                                 ))}
                             </div>
                         </div>
-                        <div className="lg:w-1/2 relative">
-                            <div className="aspect-square bg-white rounded-full border border-gray-100 shadow-2xl flex items-center justify-center p-20 relative">
+                        <div className="w-full max-w-[320px] md:max-w-md mx-auto lg:max-w-none lg:w-1/2 relative">
+                            <div className="aspect-square bg-white rounded-full border border-gray-100 shadow-2xl flex items-center justify-center p-8 relative">
                                 <motion.div
                                     animate={{ rotate: 360 }}
                                     transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                                    className="absolute inset-0 border border-dashed border-gray-200 rounded-full"
+                                    className="absolute inset-0 border border-dashed border-gray-200 rounded-full z-20 pointer-events-none"
                                 />
-                                <TrendingUp size={200} className="text-gray-100 stroke-1" />
+                                <div className="relative w-full h-full rounded-full overflow-hidden shadow-lg z-10">
+                                    <Image
+                                        src="/images/hizmetler/seo-araclari-img.png"
+                                        alt="SEO Araçları ve Veri Analizi"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>

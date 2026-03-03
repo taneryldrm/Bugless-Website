@@ -19,6 +19,7 @@ import {
     Check
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const foundationPoints = [
     {
@@ -202,14 +203,21 @@ export default function LogoDesignPage() {
                                 ))}
                             </div>
                         </div>
-                        <div className="lg:w-1/2 relative">
-                            <div className="aspect-square bg-gray-50 rounded-full flex items-center justify-center p-20 relative">
+                        <div className="w-full max-w-[320px] md:max-w-md mx-auto lg:max-w-none lg:w-1/2 relative">
+                            <div className="aspect-square bg-gray-50 rounded-full flex items-center justify-center p-8 relative">
                                 <motion.div
                                     animate={{ rotate: 360 }}
                                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                                    className="absolute inset-0 border-[1px] border-dashed border-gray-200 rounded-full"
+                                    className="absolute inset-0 border-[1px] border-dashed border-gray-200 rounded-full z-20 pointer-events-none"
                                 />
-                                <PenTool size={200} className="text-gray-200 relative z-10 stroke-1" />
+                                <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl z-10">
+                                    <Image
+                                        src="/images/hizmetler/logo-tasarim-derinlik.png"
+                                        alt="Logo Tasarımında Derinlik"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>

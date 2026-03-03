@@ -17,6 +17,9 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Bugless Digital | Kurumsal Dijital Ajans",
   description: "Modern, yaratıcı ve profesyonel dijital çözümler.",
+  verification: {
+    google: "45mlNKoIdSc4aoJ7STf-xAb75NR2Lr7UiNhEoKguhSc",
+  },
 };
 
 export default function RootLayout({

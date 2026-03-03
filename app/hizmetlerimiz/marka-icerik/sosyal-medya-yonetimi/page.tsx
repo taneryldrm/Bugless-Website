@@ -21,6 +21,7 @@ import {
     ArrowRight
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const services = [
     {
@@ -221,10 +222,17 @@ export default function SocialMediaManagementPage() {
                                 ))}
                             </div>
                         </div>
-                        <div className="lg:w-1/2 relative">
-                            <div className="aspect-square bg-white rounded-3xl border border-gray-100 shadow-2xl flex items-center justify-center p-20 relative overflow-hidden">
+                        <div className="w-full max-w-[320px] md:max-w-md mx-auto lg:max-w-none lg:w-1/2 relative">
+                            <div className="aspect-square bg-white rounded-3xl border border-gray-100 shadow-2xl flex items-center justify-center p-8 relative overflow-hidden">
                                 <div className="absolute inset-0 bg-gray-50 opacity-50"></div>
-                                <Share2 size={240} className="text-gray-200 relative z-10 stroke-1" />
+                                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-lg z-10">
+                                    <Image
+                                        src="/images/hizmetler/sosyal-medya-yonetimi.png"
+                                        alt="Sosyal Medya Yönetimi ve Stratejik Planlama"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>

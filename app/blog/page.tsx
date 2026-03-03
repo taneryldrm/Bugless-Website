@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { useState, useEffect } from "react";
 import { storage, BlogItem } from "@/lib/storage";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 
 export default function BlogPage() {
     const [posts, setPosts] = useState<BlogItem[]>([]);
@@ -17,7 +17,7 @@ export default function BlogPage() {
         <main className="bg-white">
             <PageHeader
                 title="Blog"
-                description="Dijital dünya, teknoloji ve tasarım hakkında içgörülerimiz."
+                description="Dijital dünyaya yön veren trendler, teknolojik yenilikler ve stratejik tasarımlar üzerine markanızı ileriye taşıyacak profesyonel içgörüler."
             />
 
             <section className="py-24 bg-white text-black">
@@ -45,9 +45,16 @@ export default function BlogPage() {
                                             <span className="px-3 py-1 bg-black text-white text-xs font-bold rounded-full">
                                                 {post.category || "Genel"}
                                             </span>
-                                            <span className="text-sm text-gray-500">
-                                                {post.publishedAt ? new Date(post.publishedAt).toLocaleDateString("tr-TR") : ""}
-                                            </span>
+                                            <div className="flex items-center gap-4 text-sm text-gray-500">
+                                                {post.readTime && (
+                                                    <span className="flex items-center gap-1">
+                                                        <Clock size={14} /> {post.readTime}
+                                                    </span>
+                                                )}
+                                                <span>
+                                                    {post.publishedAt ? new Date(post.publishedAt).toLocaleDateString("tr-TR") : ""}
+                                                </span>
+                                            </div>
                                         </div>
 
                                         <h2 className="text-2xl font-display font-bold mb-4 group-hover:text-amber-500 transition-colors">

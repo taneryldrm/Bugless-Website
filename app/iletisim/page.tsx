@@ -55,7 +55,7 @@ export default function ContactPage() {
         <>
             <PageHeader
                 title="İletişim"
-                description="Projeleriniz için bizimle iletişime geçin. Kahvemizi içmeye bekleriz."
+                description="Bir fikriniz mi var? Gelin dijital dünyanın sınırsız potansiyelini ve markanızın geleceğini en iyi stratejiyle birlikte konuşalım."
             />
 
             <section className="py-24 bg-white text-black">
