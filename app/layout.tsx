@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Outfit, Space_Grotesk } from "next/font/google";
-import Script from "next/script";
 import { Header } from "@/components/layout/Header";
 import { LayoutExtras } from "@/components/layout/LayoutExtras";
 import "./globals.css";
@@ -30,23 +29,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr">
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JRZE3D91Z"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-2JRZE3D91Z');
+            `
+          }}
+        />
+      </head>
       <body
         className={`${outfit.variable} ${spaceGrotesk.variable} antialiased bg-black text-white`}
       >
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-2JRZE3D91Z"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-2JRZE3D91Z');
-          `}
-        </Script>
 
         <Header />
         <main className="min-h-screen pt-20">
