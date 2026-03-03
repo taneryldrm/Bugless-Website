@@ -1,42 +1,30 @@
+"use client";
+
 import { PageHeader } from "@/components/ui/PageHeader";
-import { client } from "@/lib/sanity";
-import { PortableText } from "@portabletext/react";
-import { notFound } from "next/navigation";
+import { useState, useEffect } from "react";
+import { storage, BlogItem } from "@/lib/storage";
+import { useParams, notFound } from "next/navigation";
 
-// Revalidate every 60 seconds
-export const revalidate = 60;
+export default function BlogPostPage() {
+    const { slug } = useParams();
+    const [post, setPost] = useState<BlogItem | null>(null);
+    const [loading, setLoading] = useState(true);
 
-export async function generateStaticParams() {
-    const query = `*[_type == "post"]{
-    slug
-  }`;
-    const posts = await client.fetch(query);
+    useEffect(() => {
+        const posts = storage.getBlog();
+        const found = posts.find(p => p.slug === slug);
+        setPost(found || null);
+        setLoading(false);
+    }, [slug]);
 
-    return posts.map((post: any) => ({
-        slug: post.slug.current,
-    }));
-}
-
-async function getPost(slug: string) {
-    const query = `*[_type == "post" && slug.current == $slug][0]{
-    title,
-    category,
-    publishedAt,
-    body
-  }`;
-    return client.fetch(query, { slug });
-}
-
-export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params;
-    const post = await getPost(slug);
+    if (loading) return null;
 
     if (!post) {
         notFound();
     }
 
     return (
-        <>
+        <main className="bg-white">
             <PageHeader
                 title={post.title}
                 description={post.category || "Blog"}
@@ -44,14 +32,26 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
             <section className="py-24 bg-white text-black">
                 <div className="container mx-auto px-6 max-w-4xl">
+                    {/* Cover Image */}
+                    {post.image && (
+                        <div className="aspect-video w-full rounded-2xl overflow-hidden mb-12">
+                            <img
+                                src={post.image}
+                                alt={post.title}
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                    )}
                     <div className="prose prose-lg max-w-none">
                         {post.publishedAt && (
                             <p className="text-gray-500 mb-8">{new Date(post.publishedAt).toLocaleDateString("tr-TR")}</p>
                         )}
-                        <PortableText value={post.body} />
+                        <div className="whitespace-pre-wrap text-gray-700 leading-relaxed">
+                            {post.content}
+                        </div>
                     </div>
                 </div>
             </section>
-        </>
+        </main>
     );
 }

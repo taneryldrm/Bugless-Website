@@ -1,53 +1,18 @@
 "use client";
 
-import { PageHeader } from "@/components/ui/PageHeader";
-import { Laptop, ShoppingCart, BarChart, Users, Megaphone, MonitorSmartphone, CheckCircle } from "lucide-react";
+import { serviceCategories } from "@/lib/data";
+import { Laptop, ShoppingCart, Megaphone, BarChart, CheckCircle, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { PageHeader } from "@/components/ui/PageHeader";
 
-const servicesDetails = [
-    {
-        id: "web",
-        title: "Kurumsal Web Tasarım",
-        icon: Laptop,
-        description: "Markanızın dijital dünyadaki yüzü olan web sitenizi, en son teknolojilerle ve kullanıcı deneyimini (UX) merkeze alarak tasarlıyoruz. Hızlı, güvenli ve SEO uyumlu web siteleri geliştiriyoruz.",
-        features: ["Özel Tasarım Arayüz", "Responsive (Mobil Uyumlu)", "Yönetim Paneli", "SEO Altyapısı", "Hızlı Açılış Süresi"]
-    },
-    {
-        id: "eticaret",
-        title: "E-Ticaret Çözümleri",
-        icon: ShoppingCart,
-        description: "Ürünlerinizi dijital dünyada satmak için ihtiyacınız olan her şey. Güçlü altyapı, kolay yönetim paneli ve ödeme sistemleri entegrasyonu ile satışlarınızı artırın.",
-        features: ["Gelişmiş E-Ticaret Altyapısı", "Pazaryeri Entegrasyonları", "Kargo Entegrasyonları", "Ödeme Sistemleri", "Stok Yönetimi"]
-    },
-    {
-        id: "crm",
-        title: "CRM & Özel Yazılım",
-        icon: Users,
-        description: "İş süreçlerinizi optimize etmek için size özel yazılımlar geliştiriyoruz. Müşteri ilişkileri yönetimi (CRM), ERP ve B2B paneller ile verimliliğinizi artırın.",
-        features: ["Müşteri Takibi", "Satış Süreç Yönetimi", "Görevi ve Proje Takibi", "Raporlama Modülleri", "Mobil Uygulama"]
-    },
-    {
-        id: "reklam",
-        title: "Dijital Reklam Yönetimi",
-        icon: Megaphone,
-        description: "Google Ads, Meta (Facebook/Instagram) ve LinkedIn reklamlarıyla hedef kitlenize doğrudan ulaşın. Veri odaklı stratejilerle reklam bütçenizi en verimli şekilde kullanın.",
-        features: ["Google Ads (Search, Display)", "Sosyal Medya Reklamları", "Remarketing Stratejileri", "Dönüşüm Optimizasyonu", "Aylık Raporlama"]
-    },
-    {
-        id: "sosyalmedya",
-        title: "Sosyal Medya Yönetimi",
-        icon: BarChart,
-        description: "Markanızın sosyal medyadaki sesini profesyonelce yönetiyoruz. İçerik üretimi, topluluk yönetimi ve moderasyon ile etkileşiminizi artırın.",
-        features: ["İçerik Stratejisi & Planlama", "Reels & Video Prodüksiyon", "Moderasyon & İletişim", "Rakip Analizi", "Etkileşim Artırma"]
-    },
-    {
-        id: "portfolyo",
-        title: "Portfolyo & Blog Siteleri",
-        icon: MonitorSmartphone,
-        description: "Kişisel markanızı veya içeriklerinizi öne çıkaran, okuma deneyimi yüksek blog ve portfolyo siteleri tasarlıyoruz.",
-        features: ["Minimalist Tasarım", "Hızlı İçerik Yönetimi", "Newsletter Entegrasyonu", "Görsel Odaklı Galeri", "Yazar Profilleri"]
-    }
-];
+// Helper to map icons to categories for visual consistency
+const categoryIcons: Record<string, any> = {
+    "yazilim-teknoloji": Laptop,
+    "reklam-yonetimi": Megaphone,
+    "marka-icerik": BarChart,
+    "buyume-seo": ShoppingCart
+};
 
 export default function ServicesPage() {
     return (
@@ -59,47 +24,61 @@ export default function ServicesPage() {
 
             <section className="bg-white text-black py-12">
                 <div className="container mx-auto px-6">
-                    <div className="grid grid-cols-1 gap-16">
-                        {servicesDetails.map((service, index) => (
-                            <motion.div
-                                key={service.id}
-                                id={service.id}
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.6 }}
-                                className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center py-12 border-b border-gray-100 last:border-0`}
-                            >
-                                <div className="lg:w-1/2 flex justify-center">
-                                    <div className="w-full max-w-md aspect-square bg-gray-50 rounded-3xl flex items-center justify-center p-12">
-                                        <service.icon size={120} className="text-gray-200 stroke-1" />
-                                    </div>
-                                </div>
-
-                                <div className="lg:w-1/2">
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <div className="p-3 bg-black text-white rounded-lg">
-                                            <service.icon size={24} />
+                    <div className="grid grid-cols-1 gap-24">
+                        {serviceCategories.map((category, index) => {
+                            const Icon = categoryIcons[category.id] || Laptop;
+                            return (
+                                <motion.div
+                                    key={category.id}
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    transition={{ duration: 0.6 }}
+                                    className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-16 items-center py-12 border-b border-gray-100 last:border-0`}
+                                >
+                                    <div className="lg:w-1/2 flex justify-center">
+                                        <div className="w-full max-w-md aspect-square bg-gray-50 rounded-3xl flex items-center justify-center p-12">
+                                            <Icon size={120} className="text-gray-200 stroke-1" />
                                         </div>
-                                        <span className="text-sm font-bold tracking-wider text-gray-500 uppercase">Hizmet Detayı</span>
                                     </div>
 
-                                    <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">{service.title}</h2>
-                                    <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                                        {service.description}
-                                    </p>
+                                    <div className="lg:w-1/2">
+                                        <div className="flex items-center gap-4 mb-4">
+                                            <div className="p-3 bg-black text-white rounded-lg">
+                                                <Icon size={24} />
+                                            </div>
+                                            <span className="text-sm font-bold tracking-wider text-gray-500 uppercase">Hizmet Gurubu</span>
+                                        </div>
 
-                                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        {service.features.map((feature, i) => (
-                                            <li key={i} className="flex items-center gap-3">
-                                                <CheckCircle size={20} className="text-black fill-gray-100" />
-                                                <span className="text-gray-700 font-medium">{feature}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </motion.div>
-                        ))}
+                                        <h2 className="text-4xl font-display font-bold mb-6">{category.title}</h2>
+                                        <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                                            {category.description}
+                                        </p>
+
+                                        <div className="space-y-6 mb-10">
+                                            {category.subServices.map((sub, i) => (
+                                                <div key={i} className="group">
+                                                    <Link href={sub.href} className="flex items-center gap-3 text-lg font-bold hover:text-gray-600 transition-colors">
+                                                        <CheckCircle size={20} className="text-black" />
+                                                        {sub.title}
+                                                        <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                                    </Link>
+                                                    <p className="text-gray-500 ml-8 text-sm mt-1">{sub.description}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+
+                                        <Link
+                                            href={category.href}
+                                            className="inline-flex items-center gap-2 bg-black text-white px-8 py-4 rounded-xl font-bold hover:bg-gray-800 transition-colors"
+                                        >
+                                            Kategoriyi İncele
+                                            <ArrowRight size={18} />
+                                        </Link>
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>

@@ -3,8 +3,7 @@
 import { motion } from "framer-motion";
 
 const brands = [
-    "TechGlobal", "Artemis", "Nebula", "Vortex", "Horizon",
-    "Vertex", "Aura", "Hyperion", "Zenith", "Pinnacle"
+    "WRO48", "Uçanlar Temizlik", "Serene Butik", "İçel Solar Market", "Vera Temizlik", "Villa Tatilinde"
 ];
 
 export function TrustedBy() {

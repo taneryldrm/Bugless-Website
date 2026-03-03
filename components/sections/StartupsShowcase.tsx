@@ -6,17 +6,17 @@ import { Rocket } from "lucide-react";
 // Placeholder data for startups - usually would come from CMS or props
 const startups = [
     {
-        name: "Startup 1",
+        name: "Play My Jam",
         description: "Finansal teknolojiler alanında yapay zeka destekli çözüm ortağı.",
         category: "FinTech"
     },
     {
-        name: "Startup 2",
+        name: "Şantiye Cepte",
         description: "E-ticaret operasyonlarını otomatize eden akıllı yönetim paneli.",
         category: "SaaS"
     },
     {
-        name: "Startup 3",
+        name: "Erasmus İzmir",
         description: "Sürdürülebilir enerji yönetimi için IoT tabanlı platform.",
         category: "IoT / Energy"
     }
@@ -31,9 +31,6 @@ export function StartupsShowcase() {
                         <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">Girişimlerimiz</h2>
                         <p className="text-gray-400">Kendi bünyemizde geliştirdiğimiz ve büyüttüğümüz projeler.</p>
                     </div>
-                    <div className="hidden md:block">
-                        <Rocket size={48} className="text-white/20" />
-                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -44,13 +41,15 @@ export function StartupsShowcase() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group p-8 bg-neutral-900 rounded-2xl border border-white/5 hover:border-white/20 transition-all hover:bg-neutral-800"
+                            className="group p-8 bg-neutral-900 rounded-2xl border border-white/5 hover:border-purple-500/50 transition-all hover:bg-neutral-800 hover:shadow-[0_0_30px_-5px_rgba(168,85,247,0.15)]"
                         >
-                            <div className="text-xs font-bold tracking-wider text-gray-500 uppercase mb-4">{startup.category}</div>
-                            <h3 className="text-2xl font-bold font-display mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
+                            <div className="inline-block px-3 py-1 rounded-full bg-white/5 text-xs font-bold tracking-wider text-gray-400 uppercase mb-4 group-hover:bg-purple-500/20 group-hover:text-purple-300 transition-colors">
+                                {startup.category}
+                            </div>
+                            <h3 className="text-2xl font-bold font-display mb-3 group-hover:text-purple-400 transition-colors">
                                 {startup.name}
                             </h3>
-                            <p className="text-gray-400 line-clamp-3">
+                            <p className="text-gray-400 line-clamp-3 group-hover:text-gray-300">
                                 {startup.description}
                             </p>
                         </motion.div>

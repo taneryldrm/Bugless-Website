@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Space_Grotesk } from "next/font/google";
 import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { CTA } from "@/components/sections/CTA";
+import { LayoutExtras } from "@/components/layout/LayoutExtras";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -34,9 +33,9 @@ export default function RootLayout({
         <main className="min-h-screen pt-20">
           {children}
         </main>
-        <CTA />
-        <Footer />
+        <LayoutExtras />
       </body>
     </html>
   );
 }
+

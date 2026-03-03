@@ -26,15 +26,19 @@ export function Footer() {
                             <li><Link href="/hakkimizda" className="text-gray-400 hover:text-white text-sm">Hakkımızda</Link></li>
                             <li><Link href="/hizmetlerimiz" className="text-gray-400 hover:text-white text-sm">Hizmetlerimiz</Link></li>
                             <li><Link href="/referanslar" className="text-gray-400 hover:text-white text-sm">Referanslar</Link></li>
+                            <li><Link href="/startuplar" className="text-gray-400 hover:text-white text-sm">Startuplar</Link></li>
+                            <li><Link href="/blog" className="text-gray-400 hover:text-white text-sm">Blog</Link></li>
+                            <li><Link href="/iletisim" className="text-gray-400 hover:text-white text-sm">İletişim</Link></li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="font-display font-bold text-white mb-4">Hizmetler</h4>
                         <ul className="space-y-2">
-                            <li><Link href="/hizmetlerimiz#web" className="text-gray-400 hover:text-white text-sm">Web Tasarım</Link></li>
-                            <li><Link href="/hizmetlerimiz#ecommerce" className="text-gray-400 hover:text-white text-sm">E-Ticaret</Link></li>
-                            <li><Link href="/hizmetlerimiz#seo" className="text-gray-400 hover:text-white text-sm">SEO & Sosyal Medya</Link></li>
+                            <li><Link href="/hizmetlerimiz/yazilim-teknoloji" className="text-gray-400 hover:text-white text-sm">Yazılım & Teknoloji</Link></li>
+                            <li><Link href="/hizmetlerimiz/reklam-yonetimi" className="text-gray-400 hover:text-white text-sm">Reklam Yönetimi</Link></li>
+                            <li><Link href="/hizmetlerimiz/marka-icerik" className="text-gray-400 hover:text-white text-sm">Marka & İçerik Üretimi</Link></li>
+                            <li><Link href="/hizmetlerimiz/buyume-seo" className="text-gray-400 hover:text-white text-sm">Büyüme & SEO</Link></li>
                         </ul>
                     </div>
 
